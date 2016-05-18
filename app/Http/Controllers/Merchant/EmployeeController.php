@@ -10,7 +10,7 @@ namespace App\Http\Controllers\Merchant;
 
 use App\Http\Controllers\Controller;
 
-class StaffController extends Controller
+class EmployeeController extends Controller
 {
 
     public function index()
@@ -20,7 +20,7 @@ class StaffController extends Controller
 
     public function create()
     {
-        return view('merchant.staff_create');
+        return view('merchant.employee_create');
     }
 
     public function store()
