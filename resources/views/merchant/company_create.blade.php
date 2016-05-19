@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <form class="form-horizontal" role="form" action="">
+    <form class="form-horizontal" role="form" action="{{ route('merchant.company.store') }}" method="post">
         {{ csrf_field() }}
 
         <div class="form-group">

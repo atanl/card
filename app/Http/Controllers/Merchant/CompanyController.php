@@ -9,6 +9,10 @@
 namespace App\Http\Controllers\Merchant;
 
 use App\Http\Controllers\Controller;
+use App\Models\Company;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Request;
 
 class CompanyController extends Controller
 {
@@ -25,6 +29,15 @@ class CompanyController extends Controller
 
     public function store()
     {
+        try {
+            $input = Request::all();
+            $company = new Company($input);
+            Auth::user()->company()->save($company);
+        } catch (\Exception $e) {
+            dump($e);
+        }
+
+
 
     }
 

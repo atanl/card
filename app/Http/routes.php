@@ -22,6 +22,7 @@ Route::get('/home', 'HomeController@index');
 Route::group(['middleware' => 'auth'], function() {
 
     Route::get('/merchant/company/create', ['uses' => 'Merchant\CompanyController@create', 'as' => 'merchant.company.create']);
+    Route::post('/merchant/company', ['uses' => 'Merchant\CompanyController@store', 'as' => 'merchant.company.store']);
     Route::get('/merchant/employee/create', ['uses' => 'Merchant\EmployeeController@create', 'as' => 'merchant.employee.create']);
 
 
