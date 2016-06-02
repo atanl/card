@@ -9,12 +9,17 @@
 namespace App\Http\Controllers\Merchant;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Request;
 
 class EmployeeController extends Controller
 {
 
     public function index()
     {
+        $employees = Auth::user()->company->employees;
+
+        return view('merchant.employee_index', ['employees' => $employees]);
 
     }
 
@@ -25,6 +30,14 @@ class EmployeeController extends Controller
 
     public function store()
     {
+
+        try {
+            $input = Request::all();
+            $result = Auth::user()->company->employees()->create($input);
+            dump($result);
+        } catch (\Exception $e) {
+            dump($e);
+        }
 
     }
 
