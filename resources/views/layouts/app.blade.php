@@ -80,7 +80,9 @@
     <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 
-    @yield('script')
+    <script type="text/javascript">
+        @yield('script')
+    </script>
 
 </body>
 </html>

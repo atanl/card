@@ -9,6 +9,7 @@
 namespace App\Http\Controllers\Merchant;
 
 use App\Http\Controllers\Controller;
+use App\Models\Employee;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 
@@ -18,32 +19,44 @@ class EmployeeController extends Controller
     public function index()
     {
         $employees = Auth::user()->company->employees;
-
         return view('merchant.employee_index', ['employees' => $employees]);
-
     }
 
     public function create()
     {
-        return view('merchant.employee_create');
+        $company = Auth::user()->company;
+        $account = Auth::user()->account;
+        return view('merchant.employee_create', ['company' => $company, 'account' => $account]);
     }
 
     public function store()
     {
-
         try {
+
+            $myEmployeeCount = Auth::user()->company()->count();
+
+            $grade = Auth::user()->account->grade;
+            if (!$grade) {
+                $defaultCapacity = config('card.default_capacity');
+                if ($defaultCapacity > $myEmployeeCount) {
+                    
+                }
+            } else {
+
+            }
             $input = Request::all();
             $result = Auth::user()->company->employees()->create($input);
-            dump($result);
+            return redirect()->action('Merchant\EmployeeController@show', ['employeeId' => $result->id]);
         } catch (\Exception $e) {
-            dump($e);
+            throw $e;
         }
-
     }
 
-
-    public function show()
+    public function show($employeeId)
     {
+        $employee = Employee::findOrFail($employeeId);
+
+        return view('merchant.employee_show', ['employee' => $employee]);
 
     }
 

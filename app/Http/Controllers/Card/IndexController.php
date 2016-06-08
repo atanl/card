@@ -10,13 +10,15 @@ namespace App\Http\Controllers\Card;
 
 use App\Http\Controllers\Controller;
 use App\Models\Employee;
+use Illuminate\Support\Facades\Auth;
 
 class IndexController extends Controller
 {
 
     public function index($employeeId) {
+        $account = Auth::user()->account;
         $employee = Employee::findOrFail($employeeId);
-        return view('card.index_index', ['employee' => $employee]);
+        return view('card.index_index', ['account' => $account, 'employee' => $employee]);
     }
 
 }
