@@ -8,6 +8,6 @@
 
 return [
 
-    'default_capacity' => 5,
+    'default_capacity' => 1,
 
 ];

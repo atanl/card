@@ -33,20 +33,17 @@ class EmployeeController extends Controller
     {
         try {
 
-            $myEmployeeCount = Auth::user()->company()->count();
+            $myEmployeeCount = Auth::user()->company->employees()->count();
 
             $grade = Auth::user()->account->grade;
-            if (!$grade) {
-                $defaultCapacity = config('card.default_capacity');
-                if ($defaultCapacity > $myEmployeeCount) {
-                    
-                }
-            } else {
 
+            if ($grade->capacity > $myEmployeeCount) {
+                $input = Request::all();
+                $result = Auth::user()->company->employees()->create($input);
+                return redirect()->action('Merchant\EmployeeController@show', ['employeeId' => $result->id]);
+            } else {
+                throw new \Exception("员工人数超出上限");
             }
-            $input = Request::all();
-            $result = Auth::user()->company->employees()->create($input);
-            return redirect()->action('Merchant\EmployeeController@show', ['employeeId' => $result->id]);
         } catch (\Exception $e) {
             throw $e;
         }
