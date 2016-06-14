@@ -52,9 +52,7 @@ class EmployeeController extends Controller
     public function show($employeeId)
     {
         $employee = Employee::findOrFail($employeeId);
-
         return view('merchant.employee_show', ['employee' => $employee]);
-
     }
 
 

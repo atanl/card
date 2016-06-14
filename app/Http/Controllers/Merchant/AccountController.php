@@ -22,4 +22,10 @@ class AccountController extends Controller
         return view('merchant.account_upgrade');
     }
 
+
+    public function degrade() {
+
+    }
+
+
 }
