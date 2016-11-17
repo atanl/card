@@ -21,6 +21,7 @@ Route::get('/home', 'HomeController@index');
 
 Route::group(['middleware' => 'auth'], function() {
 
+    Route::get('/merchant', ['uses' => 'Merchant\IndexController@index', 'as' => 'merchant.index.index']);
     Route::get('/merchant/company/create', ['uses' => 'Merchant\CompanyController@create', 'as' => 'merchant.company.create']);
     Route::post('/merchant/company', ['uses' => 'Merchant\CompanyController@store', 'as' => 'merchant.company.store']);
     Route::get('/merchant/employee', ['uses' => 'Merchant\EmployeeController@index', 'as' => 'merchant.employee.index']);
