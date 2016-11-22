@@ -40,16 +40,25 @@
                                 </span>
                             </a>
                             <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                                <li><a class="J_menuItem" href="form_avatar.html">修改头像</a>
+
+                                <li>
+                                    <!-- 使用 router-link 组件来导航. -->
+                                    <!-- 通过传入 `to` 属性指定链接. -->
+                                    <!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
+                                    <router-link class="J_menuItem" to="/form_avatar">修改头像</router-link>
                                 </li>
-                                <li><a class="J_menuItem" href="profile.html">个人资料</a>
+                                <li>
+                                    <router-link class="J_menuItem" to="/profile">个人资料</router-link>
                                 </li>
-                                <li><a class="J_menuItem" href="contacts.html">联系我们</a>
+                                <li>
+                                    <router-link class="J_menuItem" to="/contacts">联系我们</router-link>
                                 </li>
-                                <li><a class="J_menuItem" href="mailbox.html">信箱</a>
+                                <li>
+                                    <router-link class="J_menuItem" to="/mailbox">信箱</router-link>
                                 </li>
                                 <li class="divider"></li>
-                                <li><a href="login.html">安全退出</a>
+                                <li>
+                                    <router-link href="login.html">安全退出</router-link>
                                 </li>
                             </ul>
                         </div>
@@ -64,25 +73,24 @@
                         </a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a class="J_menuItem" href="index_v1.html" data-index="0">主页示例一</a>
+                                <router-link class="J_menuItem" to="index_v1.html" data-index="0">主页示例一</router-link>
                             </li>
                             <li>
-                                <a class="J_menuItem" href="index_v2.html">主页示例二</a>
+                                <router-link class="J_menuItem" to="index_v2.html">主页示例二</router-link>
                             </li>
                             <li>
-                                <a class="J_menuItem" href="index_v3.html">主页示例三</a>
+                                <router-link class="J_menuItem" to="index_v3.html">主页示例三</router-link>
                             </li>
                             <li>
-                                <a class="J_menuItem" href="index_v4.html">主页示例四</a>
-                            </li>
-                            <li>
-                                <a href="index_v5.html" target="_blank">主页示例五</a>
+                                <router-link class="J_menuItem" to="index_v4.html">主页示例四</router-link>
                             </li>
                         </ul>
 
                     </li>
                     <li>
-                        <a class="J_menuItem" href="layouts.html"><i class="fa fa-columns"></i> <span class="nav-label">布局</span></a>
+                        <router-link class="J_menuItem" to="layouts.html">
+                            <i class="fa fa-columns"></i><span class="nav-label">布局</span>
+                        </router-link>
                     </li>
                 </ul>
             </div>
@@ -213,7 +221,7 @@
                 <a href="login.html" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
             </div>
             <div class="row J_mainContent" id="content-main">
-                <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="index_v1.html?v=4.0" frameborder="0" data-id="index_v1.html" seamless></iframe>
+                <router-view></router-view>
             </div>
             <div class="footer">
                 <div class="pull-right">&copy; 2014-2015 <a href="http://www.zi-han.net/" target="_blank">zihan's blog</a>
@@ -243,9 +251,8 @@
     <!-- 第三方插件 -->
     <script src="{{ asset('/js/plugins/pace/pace.min.js') }}"></script>
 
-    <script type="text/javascript">
-        @yield('script')
-    </script>
+
+    @yield('script')
 
 </body>
 
