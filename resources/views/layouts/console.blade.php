@@ -45,10 +45,10 @@
                                     <!-- 使用 router-link 组件来导航. -->
                                     <!-- 通过传入 `to` 属性指定链接. -->
                                     <!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
-                                    <router-link class="J_menuItem" to="/form_avatar">修改头像</router-link>
+                                    <router-link class="J_menuItem" to="/foo">修改头像</router-link>
                                 </li>
                                 <li>
-                                    <router-link class="J_menuItem" to="/profile">个人资料</router-link>
+                                    <router-link class="J_menuItem" to="/bar">个人资料</router-link>
                                 </li>
                                 <li>
                                     <router-link class="J_menuItem" to="/contacts">联系我们</router-link>
@@ -58,40 +58,16 @@
                                 </li>
                                 <li class="divider"></li>
                                 <li>
-                                    <router-link href="login.html">安全退出</router-link>
+                                    <router-link href="login.html" to="/">安全退出</router-link>
                                 </li>
                             </ul>
                         </div>
                         <div class="logo-element">H+
                         </div>
                     </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-home"></i>
-                            <span class="nav-label">主页</span>
-                            <span class="fa arrow"></span>
-                        </a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <router-link class="J_menuItem" to="index_v1.html" data-index="0">主页示例一</router-link>
-                            </li>
-                            <li>
-                                <router-link class="J_menuItem" to="index_v2.html">主页示例二</router-link>
-                            </li>
-                            <li>
-                                <router-link class="J_menuItem" to="index_v3.html">主页示例三</router-link>
-                            </li>
-                            <li>
-                                <router-link class="J_menuItem" to="index_v4.html">主页示例四</router-link>
-                            </li>
-                        </ul>
 
-                    </li>
-                    <li>
-                        <router-link class="J_menuItem" to="layouts.html">
-                            <i class="fa fa-columns"></i><span class="nav-label">布局</span>
-                        </router-link>
-                    </li>
+                    @yield('menus')
+
                 </ul>
             </div>
         </nav>
@@ -199,7 +175,7 @@
                 </button>
                 <nav class="page-tabs J_menuTabs">
                     <div class="page-tabs-content">
-                        <a href="javascript:;" class="active J_menuTab" data-id="index_v1.html">首页</a>
+                        <router-link class="active J_menuTab" to="/home" data-id="/home">首页</router-link>
                     </div>
                 </nav>
                 <button class="roll-nav roll-right J_tabRight"><i class="fa fa-forward"></i>
@@ -251,7 +227,10 @@
     <!-- 第三方插件 -->
     <script src="{{ asset('/js/plugins/pace/pace.min.js') }}"></script>
 
+    <!-- 定义vue的component -->
+    @yield('components')
 
+    <!-- 自定义js脚本片段 -->
     @yield('script')
 
 </body>

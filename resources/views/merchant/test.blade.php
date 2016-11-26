@@ -1,7 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
-<template id="test" class="container">
+<div id="test" class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
@@ -13,7 +10,7 @@
             </div>
         </div>
     </div>
-</template>
+</div>
 
 <script>
     const roHome = { template: '#test' };
@@ -22,4 +19,3 @@
         el: "#test"
     })
 </script>
-@endsection
