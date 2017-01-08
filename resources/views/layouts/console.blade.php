@@ -184,8 +184,6 @@
     <script src="{{ asset('/js/plugins/metisMenu/jquery.metisMenu.js') }}"></script>
     <script src="{{ asset('/js/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
     <script src="{{ asset('/js/plugins/layer/layer.min.js') }}"></script>
-    <script src="{{ asset('/js/vue.js') }}"></script>
-    <script src="{{ asset('/js/vue-router.js') }}"></script>
 
     <!-- 自定义js -->
     <script src="{{ asset('/js/hPlus.js?v=4.1.0') }}"></script>
