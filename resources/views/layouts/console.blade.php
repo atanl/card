@@ -30,41 +30,8 @@
             </div>
             <div class="sidebar-collapse">
                 <ul class="nav" id="side-menu">
-                    <li class="nav-header">
-                        <div class="dropdown profile-element">
-                            <span><img alt="image" class="img-circle" src="{{ asset('/img/profile_small.jpg') }}" /></span>
-                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                                <span class="clear">
-                               <span class="block m-t-xs"><strong class="font-bold">Beaut-zihan</strong></span>
-                                <span class="text-muted text-xs block">超级管理员<b class="caret"></b></span>
-                                </span>
-                            </a>
-                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
 
-                                <li>
-                                    <!-- 使用 router-link 组件来导航. -->
-                                    <!-- 通过传入 `to` 属性指定链接. -->
-                                    <!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
-                                    <router-link class="J_menuItem" to="/foo">修改头像</router-link>
-                                </li>
-                                <li>
-                                    <router-link class="J_menuItem" to="/bar">个人资料</router-link>
-                                </li>
-                                <li>
-                                    <router-link class="J_menuItem" to="/contacts">联系我们</router-link>
-                                </li>
-                                <li>
-                                    <router-link class="J_menuItem" to="/mailbox">信箱</router-link>
-                                </li>
-                                <li class="divider"></li>
-                                <li>
-                                    <router-link href="login.html" to="/">安全退出</router-link>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="logo-element">H+
-                        </div>
-                    </li>
+                    @yield('avatar')
 
                     @yield('menus')
 

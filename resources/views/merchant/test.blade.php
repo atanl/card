@@ -1,4 +1,4 @@
-<div id="test" class="container">
+<template id="test" class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
@@ -10,12 +10,8 @@
             </div>
         </div>
     </div>
-</div>
+</template>
 
 <script>
     const roHome = { template: '#test' };
-
-    var vmHome = new Vue({
-        el: "#test"
-    })
 </script>
